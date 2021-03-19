@@ -5,7 +5,7 @@ def intersect_interval_arrays(arr1, arr2):
     j = 0
     result = []
     while i + 1 < len(arr1) and j + 1 < len(arr2):
-        if arr2[j] < arr1[i + 1]: 
+        if arr2[j] < arr1[i + 1] and arr2[j + 1] > arr1[i]: 
             if arr1[i] < arr2[j]:
                 result.append(arr2[j])
             else:
@@ -13,12 +13,13 @@ def intersect_interval_arrays(arr1, arr2):
             if arr1[i + 1] < arr2[j + 1]:
                 result.append(arr1[i + 1])
                 i += 2
-                continue
             else:
                 result.append(arr2[j + 1])
                 j += 2
-        else:
+        elif arr2[j] >= arr1[i + 1]:
             i += 2
+        else:
+            j += 2
     return(result)
 
 
