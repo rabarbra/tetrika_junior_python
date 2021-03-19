@@ -4,12 +4,12 @@ from appearance import appearance, intersect_interval_arrays
 
 class TaskTestCase(unittest.TestCase):
     def test_intersect_interval_arrays(self):
-        self.assertEqual(intersect_interval_arrays([0, 0], [0, 0]), [0, 0])
-        self.assertEqual(intersect_interval_arrays([0, 1], [0, 0]), [0, 0])
-        self.assertEqual(intersect_interval_arrays([0, 0], [0, 1]), [0, 0])
+        self.assertEqual(intersect_interval_arrays([0, 0], [0, 0]), [])
+        self.assertEqual(intersect_interval_arrays([0, 1], [0, 0]), [])
+        self.assertEqual(intersect_interval_arrays([0, 0], [0, 1]), [])
         self.assertEqual(intersect_interval_arrays([0, 1], [0, 1]), [0, 1])
         self.assertEqual(intersect_interval_arrays([0, 5], [0, 3]), [0, 3])
-        self.assertEqual(intersect_interval_arrays([0, 1, 5, 10, 60, 200], [1, 6, 40, 100]), [1, 1, 5, 6, 60, 100])
+        self.assertEqual(intersect_interval_arrays([0, 1, 5, 10, 60, 200], [1, 6, 40, 100]), [5, 6, 60, 100])
 
     def test_appearance(self):
         self.assertEqual(appearance({"lesson": [0, 0],
