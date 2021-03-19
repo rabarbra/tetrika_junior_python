@@ -1,16 +1,11 @@
 #-*- encoding: utf-8 -*-
 
-def sort_by_begin(arr):
-    decorated = [(arr[i], arr[i + 1]) for i in range(0, len(arr), 2)]
-    decorated.sort()
-    return(decorated)
-
 def intersect_interval_arrays(arr1, arr2):
     i = 0
     j = 0
     result = []
-    arr1 = sort_by_begin(arr1)
-    arr2 = sort_by_begin(arr2)
+    arr1 = sorted(zip(arr1[::2], arr1[1::2]))
+    arr2 = sorted(zip(arr2[::2], arr2[1::2]))
     while i < len(arr1) and j < len(arr2):
         if arr2[j][0] >= arr1[i][1]:
             i += 1
