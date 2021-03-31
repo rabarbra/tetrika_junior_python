@@ -7,7 +7,6 @@ app = Flask(__name__)
 @app.route('/', methods=["POST"])
 def only_endpoint():
     input_json = request.get_json(force = True)
-    print(input_json)
     to_return = {'result': appearance(input_json)}
     return(jsonify(to_return))
 
